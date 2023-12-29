@@ -1,0 +1,66 @@
+Traditional Style Test Cases:
+Positive Test Cases:
+
+1. Compose Email:
+-Open Gmail. 
+-Click on "Compose."
+-Verify that the email compose window is open.
+-Enter "QA test for Incubyte" in the email body.
+-Enter "Incubyte" in the subject.
+-Click on "Send."
+-Verify that the email is sent successfully.
+
+2. Email Body Validation:
+-Open Gmail.
+-Click on "Compose."
+-Enter an empty email body.
+-Verify that a warning or error message is displayed.
+
+3. Subject Validation:
+-Open Gmail.
+-Click on "Compose."
+-Enter a subject that exceeds the character limit.
+-Verify that a warning or error message is displayed.
+
+
+Negative Test Cases:
+
+1. Send Without Subject:
+-Open Gmail.
+-Click on "Compose."
+-Enter "QA test for Incubyte" in the email body.
+-Attempt to send without entering a subject.
+-Verify that a warning or error message is displayed.
+
+2. Send Without Body:
+-Open Gmail.
+-Click on "Compose."
+-Enter "Incubyte" in the subject.
+-Attempt to send without entering an email body.
+-Verify that a warning or error message is displayed.
+
+BDD-Style Test Cases:
+
+Positive Test Cases:
+
+Feature: Compose Email in Gmail
+
+  Scenario: User sends an email with proper content
+    Given the user is on the Gmail compose page
+    When the user enters "QA test for Incubyte" in the email body
+    And the user enters "Incubyte" in the subject
+    And clicks on "Send"
+    Then the email should be sent successfully
+
+Negative Test Cases:
+Feature: Compose Email in Gmail
+
+  Scenario: User attempts to send an email with missing content
+    Given the user is on the Gmail compose page
+    When the user tries to send the email without entering a subject
+    Then a warning or error message should be displayed
+
+  Scenario: User attempts to send an email with missing body
+    Given the user is on the Gmail compose page
+    When the user tries to send the email without entering an email body
+    Then a warning or error message should be displayed
